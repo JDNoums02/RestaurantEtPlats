@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RestaurantEtPlats.Models.Plat>
+
+@{
+    ViewData["Title"] = "Plats";
+}
+<h1 class="text-center">Liste des Plats</h1>
+@if(Model.Any()){
+
+  @if(ViewBag.categorie!=null){
+    <h2>Categorie : @ViewBag.categorie</h2>
+    <br />
+    <br />
+    <a asp-action="Index" class=" btn btn-outline-danger">Retour à List</a>
+
+}
+
+<div class="row justify-content-around">
+    @foreach (var item in Model)
+    {
+        @await Html.PartialAsync("CardPlatPartial.cshtml",item)
+
+       
+       
+    }
+
+</div>
+}else{
+    <h1 class="text-center text-danger"> Pas de plats à proposer !!!</h1>
+}
+<br />
+<br />

@@ -1,0 +1,70 @@
+﻿@model RestaurantEtPlats.ViewModels.HomeVM
+
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+<h2 class="text-center">Les Restaurant les mieux notés</h2>
+@if(Model.Restaurants.Any()){
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nom du Restaurant
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Telephone
+            </th>
+            <th>
+                Cuisine
+            </th>
+            <th>
+                Note
+            </th>
+            <th>
+                Ville
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Restaurants)
+        {
+
+            <tr>
+                @await Html.PartialAsync("../Restaurant/RestaurantPartial.cshtml", item)
+            </tr>
+        }
+    </tbody>
+</table>
+}else{
+    <br />
+    <br />
+    <h1 class=" text-center text-danger"> Pas de Restaurants à vous proposer !!!</h1>
+    <br />
+    <br />
+}
+<br />
+<br />
+<h2 class="text-center">Liste des plats les moins chers</h2>
+
+@if(Model.Plats.Any()){
+<div class="row justify-content-evenly">
+    @foreach (var item in Model.Plats)
+    {
+        @await Html.PartialAsync("../Plat/CardPlatPartial.cshtml", item)
+    }
+
+</div>
+}else{
+    <br />
+    <br />
+    <h1 class=" text-center text-danger"> Tous les plats sont hors de prix</h1>
+}
+<br />
+<br />
+

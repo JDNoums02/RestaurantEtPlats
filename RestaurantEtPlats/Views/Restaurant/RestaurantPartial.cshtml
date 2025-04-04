@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Restaurant
+
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Nom)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Adresse)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Telephone)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Cuisine)
+</td>
+<td>
+    <span class="btn btn-success">
+        @Html.DisplayFor(modelItem => modelItem.Note)
+     </span>
+    
+</td>
+<td >
+        @Html.DisplayFor(modelItem => modelItem.Ville)
+</td>

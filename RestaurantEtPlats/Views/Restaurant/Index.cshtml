@@ -1,0 +1,61 @@
+﻿@model RestaurantEtPlats.ViewModels.RestaurantVM
+
+@{
+    ViewData["Title"] = "Restaurants";
+}
+
+<h1 class="text-center">Liste des Restaurants</h1>
+
+@if(Model.RestaurantNbPlats.Any()){
+
+<table class="table" style="width:fit-content;">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+        <tr>
+
+            <th>
+                Restaurant
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Telephone
+            </th>
+            <th>
+               Cuisine
+            </th>
+            <th>
+                Note
+            </th>
+            <th>
+                Ville
+            </th>
+            <th>
+                Nombre de Plats
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Restaurants) {
+        <tr>
+                
+                @await Html.PartialAsync("RestaurantPartial.cshtml", item)
+
+                <td>
+                    @Model.RestaurantNbPlats[item.Id]
+                </td>
+            
+            
+        </tr>
+}
+    </tbody>
+</table>
+}else{
+    <h1 class="text-center text-danger"> Pas de restaurants à proposer !!!</h1>
+}
+<br />
+<br />

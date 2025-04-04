@@ -1,0 +1,23 @@
+﻿@model Plat
+@{
+
+}
+<div class="card my-2" style="width: 18rem;">
+    <img src="@Model.CheminImage" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem.Nom)</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <p>Categorie : <a asp-controller="Plat"
+                             asp-action="Index" asp-route-categorie="@Model.Categorie">@Html.DisplayFor(modelItem => modelItem.Categorie)</a>
+        </p>
+
+        <li class="list-group-item">Prix : @Html.DisplayFor(modelItem => modelItem.Prix)</li>
+    </ul>
+    <div class="card-body">
+        <a class="btn btn-primary" asp-controller="Plat"
+           asp-action="Details" asp-route-id="@Model.Id">Details</a>
+    </div>
+</div>
+
+

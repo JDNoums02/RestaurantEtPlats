@@ -1,0 +1,54 @@
+﻿@model RestaurantEtPlats.Models.Plat
+
+@{
+    ViewData["Title"] = "Details Plats";
+}
+
+<h1>Details</h1>
+
+<div class="row">
+    <div class="col-7">
+
+
+   
+    <h4>Plat</h4>
+    <hr />
+    <dl class="row">
+       
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Categorie)
+        </dt>
+        <dd class = "col-sm-10">
+                <p>
+                    <a asp-controller="Plat"
+                    asp-action="Index" asp-route-categorie="@Model.Categorie">@Model.Categorie</a>
+                </p>
+        </dd>
+        
+        
+    </dl>
+    
+</div>
+    <div class="col-4">
+        <img src=@Model.CheminImage alt="..." class="img-thumbnail">
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class=" btn btn-outline-danger">Retour à List</a>
+</div>
+<br />
+<br />
+<br />
